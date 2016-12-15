@@ -1,0 +1,209 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>大物实验数据计算器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+table
+  {
+  border-collapse:collapse;
+  }
+
+table, td, th
+  {
+  border:1px solid black;
+  }
+ input{
+ 	width:100px;text-align:center;
+ }
+</style>
+</head>
+    <body><div>
+    <h3>密立根油滴实验计算器</h3>
+    U <br>
+    <input type="text" id="x" value=""><br>
+    tg<br>
+    <input type="text" id="y" value=""><br>
+    <div id="z"></div>
+
+    <script>
+    	function Math1(){
+    		var M;
+    		var N;
+    		var P;
+    		var x=document.getElementById('x').value;
+    		var y=document.getElementById('y').value;
+    		var a=Math.sqrt(y);
+    		var b=y*(1+0.02*a);
+    		var c=Math.pow(b,1.5);
+    		M=(1.43e-14)/(c*x);
+    		N=(M/1.6e-19);
+    		P=M/N;
+
+    		var mathN=Math.round(N);
+
+    		document.getElementById("z").innerHTML ="M="+M+"<br>P="+P+"<br>N="+mathN;
+    	}
+    	  setInterval("Math1()",50);
+    </script>
+    </div>
+  	<h3>超声波声速的测定计算器</h3>
+  	<div>
+  		 λ1<input type="text" id="x1" value="">
+  		 λ2<input type="text" id="x2" value="">
+  		 λ3<input type="text" id="x3" value="">
+  		 λ4<input type="text" id="x4" value="">
+  		 λ5<input type="text" id="x5" value=""><br><br>
+  		 λ6<input type="text" id="x6" value="">
+  		 λ7<input type="text" id="x7" value="">
+  		 λ8<input type="text" id="x8" value="">
+  		 λ9<input type="text" id="x9" value="">
+  		 λ10<input type="text" id="x10" value=""><br>
+  		 频率f:<input type="text" id="f" value="">
+  		<input type="button" value="计算" onclick="Mathing()">
+  		<div id="z1"></div>
+  		<script>
+  			function Mathing(){
+  				var x1=document.getElementById('x1').value;
+  				var x2=document.getElementById('x2').value;
+  				var x3=document.getElementById('x3').value;
+  				var x4=document.getElementById('x4').value;
+  				var x5=document.getElementById('x5').value;
+  				var x6=document.getElementById('x6').value;
+  				var x7=document.getElementById('x7').value;
+  				var x8=document.getElementById('x8').value;
+  				var x9=document.getElementById('x9').value;
+  				var x10=document.getElementById('x10').value;
+  				var f=document.getElementById('f').value;	
+
+  				var  λ1;
+  				var  λ2;
+  				var  λ3;
+  				var  λ4;
+  				var  λ5;
+
+  				 λ1=2.5*(x6-x1);
+  				 λ2=2.5*(x7-x2);
+  				 λ3=2.5*(x8-x3);
+  				 λ4=2.5*(x9-x4);
+  				 λ5=2.5*(x10-x5);
+
+  				var  λ0=( λ1+ λ2+ λ3+ λ4+ λ5)/5;
+
+  				var U_λb=(0.01/2)/Math.sqrt(3);
+  				var a=( λ1- λ0)*( λ1-λ0)+( λ2- λ0)*(λ2-λ0)+(λ3-λ0)*(λ3-λ0)+(λ4-λ0)*(λ4-λ0)+(λ5-λ0)*(λ5-λ0);
+  				var b=a/20;
+  				var U_λa=Math.pow(b,0.5);
+  				var c=U_λa*U_λa+U_λb*U_λb;
+  				var U_λ=Math.pow(c,0.5);
+  				var U_f=1/Math.sqrt(3);
+  				var v=λ0*f;
+  				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/λ0)*(U_f/λ0);
+  				var U_v=v*Math.sqrt(d);
+  				var v1=v+U_v;
+  				var v2=v-U_v;
+  				document.getElementById("z1").innerHTML ="λ1="+λ1+"<br>"+"λ2="+λ2+"<br>"+"λ3="+λ3+"<br>"+"λ4="+λ4+"<br>"+"λ5="+λ5+"<br>"+"Uλa="+U_λa+"<br>"+"Uλb="+U_λb+"<br>"+"Uλ="+U_λ+"<br>"+"Uf="+U_f+"<br>"+"v="+v+"<br>"+"Uv="+U_v+"<br>"+"v="+v2+"-"+v1;
+  			}
+  		</script>
+	</div>
+	<div>
+	<h3>磁阻效应实验计算器</h3>
+	B:<input type="text" id="B" value="">
+	UR:<input type="text" id="UR" value="">
+	I:<input type="text" id="I" value="">
+	R0:<input type="text" id="R0" value="">
+	<input type="button" onclick="Mathing2()" value="计算">
+	<div id="z2"></div>
+		<script>
+		function Mathing2(){
+			var B=document.getElementById('B').value;
+			var UR=document.getElementById('UR').value;
+			var R0=document.getElementById('R0').value;
+			var I=document.getElementById("I").value;
+
+			var R=UR/I;
+			var ΔR=R-R0;
+			var lnB=Math.log(B);
+			var ΔR_R0=ΔR/R0;
+			var lnRΔR_R0=Math.log(ΔR_R0);
+			document.getElementById("z2").innerHTML ="lnB="+Math.log(B)+"<br>"+"R="+R+"<br>"+"ΔR/R0="+ΔR_R0+"<br>"+"ln[ΔR/R0]="+lnRΔR_R0+"<br>"
+			}
+			 setInterval("Mathing2()",50);
+		</script>
+	</div>
+
+	<div>
+		<h3>弗兰克-赫兹实验计算器</h3>
+		 Uf1:<input type="text" id="Uf1" value="">
+  		 Uf2:<input type="text" id="Uf2" value="">
+  		 Uf3:<input type="text" id="Uf3" value="">
+  		 Uf4:<input type="text" id="Uf4" value=""><br>
+  		 Uf5:<input type="text" id="Uf5" value="">
+  		 Uf6:<input type="text" id="Uf6" value="">
+  		 Uf7:<input type="text" id="Uf7" value="">
+  		 Uf8:<input type="text" id="Uf8" value=""><br><br>
+  		 Ug1:<input type="text" id="Ug1" value="">
+  		 Ug2:<input type="text" id="Ug2" value="">
+  		 Ug3:<input type="text" id="Ug3" value="">
+  		 Ug4:<input type="text" id="Ug4" value=""><br>
+  		 Ug5:<input type="text" id="Ug5" value="">
+  		 Ug6:<input type="text" id="Ug6" value="">
+  		 Ug7:<input type="text" id="Ug7" value="">
+  		 Ug8:<input type="text" id="Ug8" value="">
+  		 <table>
+			<tr>
+			<th>元素</th>
+			<th>钠（Na）</th>
+			<th>钾（K）</th>
+			<th>锂（Li）</th>
+			<th>镁（Mg）</th>
+			<th>贡（Hg）</th>
+			<th>氦（He）</th>
+			<th>氖（Ne）</th>
+			<th>氩（Ar）</th>
+			</tr>
+			<tr>
+			<td>Uo/V</td>
+			<td>2.12</td>
+			<td>1.63</td>
+			<td>1.84</td>
+			<td>2.71</td>
+			<td>4.9</td>
+			<td>21.2</td>
+			<td>16.8</td>
+			<td>11.8</td>
+			</tr>
+			</table>
+  		 <input type="button" onclick="Mathing3()" value="计算">
+  		 <div id="r1"></div>
+  		 <script>
+  		 function Mathing3(){
+  		 	var Uf1=document.getElementById('Uf1').value;
+  		 	var Uf2=document.getElementById('Uf2').value;
+  		 	var Uf3=document.getElementById('Uf3').value;
+  		 	var Uf4=document.getElementById('Uf4').value;
+  		 	var Uf5=document.getElementById('Uf5').value;
+  		 	var Uf6=document.getElementById('Uf6').value;
+  		 	var Uf7=document.getElementById('Uf7').value;
+  		 	var Uf8=document.getElementById('Uf8').value;
+  		 	var Ug1=document.getElementById('Ug1').value;
+  		 	var Ug2=document.getElementById('Ug2').value;
+  		 	var Ug3=document.getElementById('Ug3').value;
+  		 	var Ug4=document.getElementById('Ug4').value;
+  		 	var Ug5=document.getElementById('Ug5').value;
+  		 	var Ug6=document.getElementById('Ug6').value;
+  		 	var Ug7=document.getElementById('Ug7').value;
+  		 	var Ug8=document.getElementById('Ug8').value;
+
+  		 	var Uf0=(Uf5-Uf1)+(Uf6-Uf2)+(Uf7-Uf3)+(Uf8-Uf4);
+  		 	Uf0=Uf0/16;
+  		 	var Ug0=(Ug5-Ug1)+(Ug6-Ug2)+(Ug7-Ug3)+(Ug8-Ug4);
+  		 	Ug0=Ug0/16;
+  		 	var U0=(Uf0+Ug0)/2;
+
+  		 	document.getElementById("r1").innerHTML ="Uf0="+Uf0+"<br>"+"Ug0="+Ug0+"<br>"+"U0="+U0;
+			}
+
+  		 </script>
+	</div>
+    </body>
+</html>
