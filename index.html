@@ -119,10 +119,10 @@ table, td, th
   		 λ9<input type="text" id="x9" value="">
   		 λ10<input type="text" id="x10" value=""><br>
   		 频率f:<input type="text" id="f" value="">
-  		<input type="button" value="计算" onclick="Mathing()">
-  		<div id="z1"></div>
+  		<input type="button" value="计算" onclick="Mathing5()">
+  		<div id="zz"></div>
   		<script>
-  			function Mathing(){
+  			function Mathing5(){
   				var x1=document.getElementById('x1').value;
   				var x2=document.getElementById('x2').value;
   				var x3=document.getElementById('x3').value;
@@ -134,19 +134,16 @@ table, td, th
   				var x9=document.getElementById('x9').value;
   				var x10=document.getElementById('x10').value;
   				var f=document.getElementById('f').value;	
-
   				var  λ1;
   				var  λ2;
   				var  λ3;
   				var  λ4;
   				var  λ5;
-
   				 λ1=0.2*(x6-x1);
   				 λ2=0.2*(x7-x2);
   				 λ3=0.2*(x8-x3);
   				 λ4=0.2*(x9-x4);
   				 λ5=0.2*(x10-x5);
-
   				var  λ0=( λ1+ λ2+ λ3+ λ4+ λ5)/5;
   				var λ_p=(x10+x9+x8+x7+x6-x1-x2-x3-x4-x5)/25;
   				var U_λb=(0.01/2)/Math.sqrt(3);
@@ -161,7 +158,7 @@ table, td, th
   				var U_v=v*Math.sqrt(d);
   				var v1=v+U_v;
   				var v2=v-U_v;
-  				document.getElementById("z1").innerHTML ="λ平均="+λ_p+"<br>"+"λ1="+λ1+"<br>"+"λ2="+λ2+"<br>"+"λ3="+λ3+"<br>"+"λ4="+λ4+"<br>"+"λ5="+λ5+"<br>"+"Uλa="+U_λa+"<br>"+"Uλb="+U_λb+"<br>"+"Uλ="+U_λ+"<br>"+"Uf="+U_f+"<br>"+"v="+v+"<br>"+"Uv="+U_v+"<br>"+"v="+v2+"到"+v1;
+  				document.getElementById("zz").innerHTML ="λ平均="+λ_p+"<br>"+"λ1="+λ1+"<br>"+"λ2="+λ2+"<br>"+"λ3="+λ3+"<br>"+"λ4="+λ4+"<br>"+"λ5="+λ5+"<br>"+"Uλa="+U_λa+"<br>"+"Uλb="+U_λb+"<br>"+"Uλ="+U_λ+"<br>"+"Uf="+U_f+"<br>"+"v="+v+"<br>"+"Uv="+U_v+"<br>"+"v="+v2+"到"+v1;
   			}
   		</script>
 	</div>
