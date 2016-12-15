@@ -46,7 +46,7 @@ table, td, th
     	  setInterval("Math1()",50);
     </script>
     </div>
-  	<h3>超声波声速的测定计算器(自行化单位)</h3>
+  	<h3>超声波声速的测定计算器</h3>
   	<div>
   	  	<h4>驻波法测定声速</h4>
   		 λ1<input type="text" id="x1" value="">
@@ -97,11 +97,16 @@ table, td, th
   				var U_λ=Math.pow(c,0.5);
   				var U_f=1/Math.sqrt(3);
   				var v=λ0*f;
-  				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/λ0)*(U_f/λ0);
+  				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/f)*(U_f/f);
   				var U_v=v*Math.sqrt(d);
   				var v1=v+U_v;
   				var v2=v-U_v;
-  				document.getElementById("z1").innerHTML ="λ平均="+λ0+"<br>"+"λ1="+λ1+"<br>"+"λ2="+λ2+"<br>"+"λ3="+λ3+"<br>"+"λ4="+λ4+"<br>"+"λ5="+λ5+"<br>"+"Uλa="+U_λa+"<br>"+"Uλb="+U_λb+"<br>"+"Uλ="+U_λ+"<br>"+"Uf="+U_f+"<br>"+"v="+v+"<br>";
+          function num2e(num){
+      var p = Math.floor(Math.log(num)/Math.LN10);
+      var n = num * Math.pow(10, -p);
+      return n + 'e' + p;
+    }
+  				document.getElementById("z1").innerHTML ="λ平均="+num2e(λ0*0.001)+"<br>"+"λ1="+num2e(λ1*0.001)+"<br>"+"λ2="+num2e(λ2*0.001)+"<br>"+"λ3="+num2e(λ3*0.001)+"<br>"+"λ4="+num2e(λ4*0.001)+"<br>"+"λ5="+num2e(λ5*0.001)+"<br>"+"Uλa="+num2e(U_λa*0.001)+"<br>"+"Uλb="+num2e(U_λb*0.001)+"<br>"+"Uλ="+num2e(U_λ*0.001)+"<br>"+"Uf="+num2e(U_f)+"<br>"+"v="+v*0.001+"<br>"+"Uv="+num2e(U_v*0.001*0.001)+"<br>";
   			}
   		</script>
 	</div>
@@ -152,11 +157,16 @@ table, td, th
   				var U_λ=Math.pow(c,0.5);
   				var U_f=1/Math.sqrt(3);
   				var v=λ0*fx;
-  				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/λ0)*(U_f/λ0);
+  				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/fx)*(U_f/fx);
   				var U_v=v*Math.sqrt(d);
   				var v1=v+U_v;
   				var v2=v-U_v;
-  				document.getElementById("zz").innerHTML ="λ平均="+λ0+"<br>"+"λ1="+λ1+"<br>"+"λ2="+λ2+"<br>"+"λ3="+λ3+"<br>"+"λ4="+λ4+"<br>"+"λ5="+λ5+"<br>"+"Uλa="+U_λa+"<br>"+"Uλb="+U_λb+"<br>"+"Uλ="+U_λ+"<br>"+"Uf="+U_f+"<br>"+"v="+v+"<br>";
+          function num2e(num){
+           var p = Math.floor(Math.log(num)/Math.LN10);
+          var n = num * Math.pow(10, -p);
+           return n + 'e' + p;
+         }
+  				document.getElementById("zz").innerHTML ="λ平均="+num2e(λ0*0.001)+"<br>"+"λ1="+num2e(λ1*0.001)+"<br>"+"λ2="+num2e(λ2*0.001)+"<br>"+"λ3="+num2e(λ3*0.001)+"<br>"+"λ4="+num2e(λ4*0.001)+"<br>"+"λ5="+num2e(λ5*0.001)+"<br>"+"Uλa="+num2e(U_λa*0.001)+"<br>"+"Uλb="+num2e(U_λb*0.001)+"<br>"+"Uλ="+num2e(U_λ*0.001)+"<br>"+"Uf="+num2e(U_f)+"<br>"+"v="+v*0.001+"<br>"+"Uv="+num2e(U_v*0.001*0.001)+"<br>";
   			}
   		</script>
 	</div>
