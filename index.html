@@ -89,7 +89,7 @@ table, td, th
   				 λ5=0.4*(x10-x5);
 
   				var  λ0=( λ1+ λ2+ λ3+ λ4+ λ5)/5;
-  				var U_λb=(0.01/2)/Math.sqrt(3);
+  				var U_λb=(0.001/2)/Math.sqrt(3);
   				var a=( λ1- λ0)*( λ1-λ0)+( λ2- λ0)*(λ2-λ0)+(λ3-λ0)*(λ3-λ0)+(λ4-λ0)*(λ4-λ0)+(λ5-λ0)*(λ5-λ0);
   				var b=a/20;
   				var U_λa=Math.pow(b,0.5);
@@ -107,51 +107,51 @@ table, td, th
 	</div>
 	<div>
   	  	<h4>相位法测定声速</h4>
-  		 λ1<input type="text" id="x1" value="">
-  		 λ2<input type="text" id="x2" value="">
-  		 λ3<input type="text" id="x3" value="">
-  		 λ4<input type="text" id="x4" value="">
-  		 λ5<input type="text" id="x5" value=""><br><br>
-  		 λ6<input type="text" id="x6" value="">
-  		 λ7<input type="text" id="x7" value="">
-  		 λ8<input type="text" id="x8" value="">
-  		 λ9<input type="text" id="x9" value="">
-  		 λ10<input type="text" id="x10" value=""><br>
-  		 频率f:<input type="text" id="f" value="">
+  		 λ1<input type="text" id="xx1" value="">
+  		 λ2<input type="text" id="xx2" value="">
+  		 λ3<input type="text" id="xx3" value="">
+  		 λ4<input type="text" id="xx4" value="">
+  		 λ5<input type="text" id="xx5" value=""><br><br>
+  		 λ6<input type="text" id="xx6" value="">
+  		 λ7<input type="text" id="xx7" value="">
+  		 λ8<input type="text" id="xx8" value="">
+  		 λ9<input type="text" id="xx9" value="">
+  		 λ10<input type="text" id="xx10" value=""><br>
+  		 频率f:<input type="text" id="fx" value="">
   		<input type="button" value="计算" onclick="Mathing5()">
   		<div id="zz"></div>
   		<script>
   			function Mathing5(){
-  				var x1=document.getElementById('x1').value;
-  				var x2=document.getElementById('x2').value;
-  				var x3=document.getElementById('x3').value;
-  				var x4=document.getElementById('x4').value;
-  				var x5=document.getElementById('x5').value;
-  				var x6=document.getElementById('x6').value;
-  				var x7=document.getElementById('x7').value;
-  				var x8=document.getElementById('x8').value;
-  				var x9=document.getElementById('x9').value;
-  				var x10=document.getElementById('x10').value;
-  				var f=document.getElementById('f').value;	
+  				var xx1=document.getElementById('xx1').value;
+  				var xx2=document.getElementById('xx2').value;
+  				var xx3=document.getElementById('xx3').value;
+  				var xx4=document.getElementById('xx4').value;
+  				var xx5=document.getElementById('xx5').value;
+  				var xx6=document.getElementById('xx6').value;
+  				var xx7=document.getElementById('xx7').value;
+  				var xx8=document.getElementById('xx8').value;
+  				var xx9=document.getElementById('xx9').value;
+  				var xx10=document.getElementById('xx10').value;
+  				var fx=document.getElementById('fx').value;	
   				var  λ1;
   				var  λ2;
   				var  λ3;
   				var  λ4;
   				var  λ5;
-  				 λ1=0.2*(x6-x1);
-  				 λ2=0.2*(x7-x2);
-  				 λ3=0.2*(x8-x3);
-  				 λ4=0.2*(x9-x4);
-  				 λ5=0.2*(x10-x5);
+  				 λ1=0.2*(xx6-xx1);
+  				 λ2=0.2*(xx7-xx2);
+  				 λ3=0.2*(xx8-xx3);
+  				 λ4=0.2*(xx9-xx4);
+  				 λ5=0.2*(xx10-xx5);
   				var  λ0=( λ1+ λ2+ λ3+ λ4+ λ5)/5;
-  				var U_λb=(0.01/2)/Math.sqrt(3);
+  				var U_λb=(0.001/2)/Math.sqrt(3);
   				var a=( λ1- λ0)*( λ1-λ0)+( λ2- λ0)*(λ2-λ0)+(λ3-λ0)*(λ3-λ0)+(λ4-λ0)*(λ4-λ0)+(λ5-λ0)*(λ5-λ0);
   				var b=a/20;
   				var U_λa=Math.pow(b,0.5);
   				var c=U_λa*U_λa+U_λb*U_λb;
   				var U_λ=Math.pow(c,0.5);
   				var U_f=1/Math.sqrt(3);
-  				var v=λ0*f;
+  				var v=λ0*fx;
   				var d=(U_λ/λ0)*(U_λ/λ0)+(U_f/λ0)*(U_f/λ0);
   				var U_v=v*Math.sqrt(d);
   				var v1=v+U_v;
